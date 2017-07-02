@@ -11,27 +11,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new DownloadFilesTask().execute("kkk");
     }
 
-    private class DownloadFilesTask extends AsyncTask<Long, Integer, Long> {
+    private class DownloadFilesTask extends AsyncTask<String, Integer, Long> {
+
 
         @Override
-        protected Long doInBackground(Long... params) {
+        protected Long doInBackground(String... params) {
             return null;
         }
-        @Override
-        protected void onPostExecute(String result) {
-            TextView txt = (TextView) findViewById(R.id.output);
-            txt.setText("Executed"); // txt.setText(result);
-            // might want to change "executed" for the returned string passed
-            // into onPostExecute() but that is upto you
-        }
-
-        @Override
-        protected void onPreExecute() {}
-
-        @Override
-        protected void onProgressUpdate(Void... values) {}
     }
 
 
